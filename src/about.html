@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clone and Modify Element</title>
+</head>
+<body>
+  <div id="original">
+    <p>Original Element</p>
+    <p>Child 1</p>
+    <p>Child 2</p>
+  </div>
+
+  <script>
+    // Clone the original element
+    const originalElement = document.getElementById('original');
+    const clonedElement = originalElement.cloneNode(true);
+
+    // Delete the first child of the cloned element
+    if (clonedElement.firstElementChild) {
+      clonedElement.removeChild(clonedElement.firstElementChild);
+    }
+
+    // Clear the content of the target element
+    const targetElement = document.getElementById('target');
+    targetElement.innerHTML = '';
+
+    // Add the cloned element with the first child removed to the target element
+    targetElement.appendChild(clonedElement);
+  </script>
+  
+  <div id="target">
+    <!-- The modified cloned element will be added here -->
+  </div>
+</body>
+</html>
