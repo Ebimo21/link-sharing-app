@@ -1,127 +1,40 @@
 
-// function handleCallEvents () {
-//     const dropdown = document.getElementsByClassName('select-input');
-//     const dropdownEl = document.getElementsByClassName('select-dropdown');;
-//     for (let x =0; x<dropdownEl.length; x++){
-//         for (let i=0; i <platforms.length; i++){
-//             const p = document.createElement('p');
-//             p.classList.add('select-dropdown-item', 'bg-slate-50', "p-2", "border-b", "border-b-solid", "border-b-2")
-//             p.textContent = platforms[i].text;
-//             p.addEventListener('click', (e)=>{
-//                 const platformText = dropdownEl[x].parentElement.querySelector('.platform-text')
-//                 const platformLogo = dropdownEl[x].parentElement.querySelector('.platform-logo')
-//                 platformText.textContent = platforms[i].text
-//                 p.parentElement.parentElement.classList.remove('isOpen')
-//                 const img = document.createElement('img');
-//                 img.src = platforms[i].image;
-//                 img.width = 20;
-//                 img.height = 20;
-//                 platformLogo.innerHTML = "";
-//                 platformLogo.appendChild(img);
-//             })
-//             dropdownEl[x].appendChild(p)
-//         }
-//     }
-    
-//     for (let i=0; i <dropdown.length; i++){
-//         dropdown[i].addEventListener('click', (e)=>{
-//             e.preventDefault();
-//             dropdown[i].parentElement.classList.toggle('isOpen');
-//         })
-//     }
-    
-// }
+import { protoEl } from './data.js';
+import platforms from './data.js';
 
 const addBtn = document.getElementById('add');
-const removeBtn = document.getElementsByClassName('remove');
-addBtn.addEventListener('click', ()=>{
-    addNewField();
-})
-
-// for(let i=0; i<removeBtn.length; i++){
-//     removeBtn[i].addEventListener('click', ()=>{
-//         const parent = removeBtn[i].parentNode.parentNode
-//         parent.remove();
-        
-//     })
-// }
-
-const platforms = [
-    {
-        text: "Facebook",
-        image: "./icons/facebook.svg"
-    },
-    {
-        text: "Google",
-        image: "./icons/google.svg"
-    },
-];
-
-
-function renderDisplay () {
-    const dropdown = document.getElementsByClassName('select-input');
-    const dropdownEl = document.getElementsByClassName('select-dropdown');;
-    for (let x =0; x<dropdownEl.length; x++){
-        for (let i=0; i <platforms.length; i++){
-            const p = document.createElement('p');
-            p.classList.add('select-dropdown-item', 'bg-slate-300', "p-2", "border-b", "border-b-solid", "border-b-2")
-            p.textContent = platforms[i].text;
-            p.addEventListener('click', (e)=>{
-                const platformText = dropdownEl[x].parentElement.querySelector('.platform-text')
-                const platformLogo = dropdownEl[x].parentElement.querySelector('.platform-logo')
-                platformText.textContent = platforms[i].text
-                p.parentElement.parentElement.classList.remove('isOpen')
-                const img = document.createElement('img');
-                img.src = platforms[i].image;
-                img.width = 20;
-                img.height = 20;
-                platformLogo.innerHTML = "";
-                platformLogo.appendChild(img);
-            })
-            dropdownEl[x].appendChild(p)
-        }
-    }
-    
-    for (let i=0; i <dropdown.length; i++){
-        dropdown[i].addEventListener('click', (e)=>{
-            e.preventDefault();
-            dropdown[i].parentElement.classList.toggle('isOpen');
-        })
-    }
-    
-}
+addBtn.addEventListener( 'click', addNewField );
 
 function addNewField() {
-    const originalElement = document.getElementById('clone');
-    const main = document.getElementById('main');
-    const clonedElement = originalElement.cloneNode(true);
+    // const originalElement = document.getElementById('proto');
+    const el = document.createElement('div');
+    el.classList.add('bg-slate-100', 'p-4')
+    el.innerHTML = protoEl;
+    console.log(el)
+
+
+    const main = document.getElementById('linkCard');
+    const clonedElement = el.cloneNode(true);
+
     
-    const selectInputChild = clonedElement.querySelector('.select-input');
-    const dropdownItem = clonedElement.querySelectorAll('.select-dropdown-item');
+    const selectInputChild = clonedElement.querySelector('.selectedOption');
     const selectDropDown = clonedElement.querySelector('.select-dropdown');
     const removeBtn = clonedElement.querySelector('.remove');
+    clonedElement.id = null
     
     removeBtn.addEventListener('click', (e)=>{
         const parent = e.target.parentNode.parentNode
         parent.remove();
     })
-
-    const platformText = selectDropDown.parentElement.querySelector('.platform-text')
-    const platformLogo = selectDropDown.parentElement.querySelector('.platform-logo')
-    platformText.textContent = "Select Item"
-    const img = document.createElement('img');
-    img.src = './icons/question-mark.svg';
-    img.width = 14;
-    img.height = 14;
-    platformLogo.innerHTML = "";
-    platformLogo.appendChild(img);
-
-    for (let i=0; i <dropdownItem.length; i++){
-        dropdownItem[i].addEventListener('click', (e)=>{
+    for (let i=0; i <platforms.length; i++){
+        const p = document.createElement('p');
+        p.classList.add('select-dropdown-item', 'bg-slate-300', "p-2", "border-b", "border-b-solid", "border-b-2")
+        p.textContent = platforms[i].text;
+        p.addEventListener('click', (e)=>{
             const platformText = selectDropDown.parentElement.querySelector('.platform-text')
             const platformLogo = selectDropDown.parentElement.querySelector('.platform-logo')
             platformText.textContent = platforms[i].text
-            dropdownItem[i].parentElement.parentElement.classList.remove('isOpen')
+            p.parentElement.parentElement.classList.remove('isOpen')
             const img = document.createElement('img');
             img.src = platforms[i].image;
             img.width = 20;
@@ -129,7 +42,7 @@ function addNewField() {
             platformLogo.innerHTML = "";
             platformLogo.appendChild(img);
         })
-        // selectDropDown.appendChild(p)
+        selectDropDown.appendChild(p)
     }
 
     selectInputChild.addEventListener('click', (e)=>{
@@ -137,29 +50,34 @@ function addNewField() {
     })
     
     main.appendChild(clonedElement)
-    console.log(selectInputChild)
-
-    // for (let i=0; i <selectInputChild.length; i++){
-    //     selectInputChild[i].addEventListener('click', (e)=>{
-    //         e.preventDefault();
-    //         selectInputChild[i].parentElement.classList.toggle('isOpen');
-    //     })
-    // }
+    console.log(selectInputChild);
 }
 
-// for (let i=0; i <dropdown.length; i++){
-//         selectInputChild.parentElement.classList.toggle('isOpen');
-    
 
-//     // Step 2: Find the child element with class "select-input"
-//     // const selectInputChild = clonedElement.querySelector('.select-input');
+// renderDisplay();
 
-//     // Step 3: Add an event listener to the child element
-//     selectInputChild.addEventListener('click', () => {
-//         selectInputChild.classList.toggle('isOpen')
-//     });
+const saveBtn = document.getElementById('saveBtn')
+saveBtn.addEventListener('click', ()=>{
+    const choices = [];
+    const linkCard = document.getElementById('linkCard')
+    const linkCount = linkCard.children;
 
-//     // Step 4: Insert the cloned element into the DOM
-//     containers.appendChild(clonedElement);
-// }
-renderDisplay();
+    for(let i = 0; i <linkCount.length; i++){
+        const choiceText = linkCount[i].querySelector('.platform-text').textContent;
+        const choiceImage = linkCount[i].querySelector('.platform-logo > img').src;
+        const linkText = linkCount[i].querySelector('.link-text').textContent;
+        const choice = {
+            platform: choiceText,
+            image: choiceImage,
+            link: linkText,
+        }
+
+        choices.push(choice);
+        localStorage.setItem('links', JSON.stringify(choices))
+
+
+    }
+    linkCard.querySelectorAll('.platform-text')
+})
+
+addNewField();
