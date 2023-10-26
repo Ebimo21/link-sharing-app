@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./styles/style.css" rel="stylesheet">
-    <script type="module" src="./js/app.js" defer></script>
+    <link href="./styles/custom.css" rel="stylesheet">
+    <script type="module" src="./js/app.js"></script>
     <title>Link Sharing App</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
                             <img src="./icons/link.svg" width="20" height="20" alt="link" />
                         </span>
                     </a>
-                    <a href="/src/profile.html" class="cursor-pointer ">
+                    <a href="/src/profile.html" class="px-10 py-4 rounded-xl cursor-pointer ">
                         <span >
                             <img src="./icons/user.svg" width="20" height="20" />
                         </span>
@@ -35,8 +36,8 @@
                 </div>
             </header>
 
-            <main>
-                <section class="bg-white my-4 px-4 rounded-xl">
+            <main class="flex flex-wrap flex-col-reverse">
+                <section class="basis-full bg-white my-4 px-4 rounded-xl">
                     <h2 class="font-bold text-xl">Customize Your Link</h2>
                     <p>Add/Edit/Remove links below and than sahre all your profile with the world</p>
 
@@ -52,18 +53,24 @@
                             <button id="saveBtn" class="bg-purple-700 text-white w-10/12 block m-auto rounded-xl text-center font-bold p-4 ">Save</button>
                         </div>
                     </div>
+                </section> 
 
-                    <section>
+                    <section class="my-10 mx-2 basis-full">
                         <div>
-                            <div id="preview" class="flex flex-col ">
-                                <div id="previewLinks"></div>
+                            <div class="h-[540px] overflow-y-scrol min-w-[320px] border-1 m-auto border-2 border-solid border-slate-300 rounded-2xl p-2">
+                                <div class="h-[510px] min-w-[300px] overflow-y-scroll border-1 m-auto my-2 border-2 border-solid border-slate-300 rounded-2xl px-2 py-10">
+                                    <div>
+                                        <span class="rounded-full w-32 h-32 bg-slate-200 block m-auto"></span>
+                                        <span class="h-7 my-4 w-10/12 bg-slate-200 block m-auto rounded-xl"></span>
+                                        <span class="h-7 w-6/12 bg-slate-200 block m-auto rounded-xl"></span>
+                                    </div>
 
+                                    <div id="previewLinks" class="flex flex-col items-center gap-4 mt-20 "></div>
+                                </div>
                             </div>
-                            
 
                         </div>
                     </section>
-                </section>
             </main>
         </div>
     </div>

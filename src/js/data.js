@@ -1,15 +1,24 @@
 const platforms = [
     {
         text: "Facebook",
-        image: "./icons/facebook.svg"
+        image: "./icons/facebook.svg",
+        color: "#ed0a0a"
     },
     {
         text: "Google",
-        image: "./icons/google.svg"
+        image: "./icons/google.svg",
+        color: "#0a21ed"
     },
 ];
 
-export const protoEl = `<div class="flex items-center justify-between">
+export const platformColors = {
+    "Google": "#ed0a0a",
+    "Facebook": "#0a21ed"
+}
+
+export const protoEl = `
+<div class="linkItem bg-slate-100 p-4">
+<div class="flex items-center justify-between">
                                         <span class="font-bold">Link #1</span>
                                         <span class="bg-red-600 p-2 text-white font-bold rounded-lg cursor-pointer remove">Remove</span>
                                     </div>
@@ -44,6 +53,7 @@ export const protoEl = `<div class="flex items-center justify-between">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>`
+                                    </div>
+                                </div>`
 
 export default platforms

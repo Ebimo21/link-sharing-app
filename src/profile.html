@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./styles/style.css" rel="stylesheet">
-    <script src="./js/app.js" defer></script>
-    <title>Link Sharing App</title>
+    <link href="./styles/custom.css" rel="stylesheet">
+    <script type="module" src="./js/app.js"></script>
+    <title>Profile | Link Sharing App</title>
 </head>
 <body>
     <div>
@@ -13,28 +14,99 @@
             <header class="px-5 py-3 bg-white">
                 <div class="flex items-center justify-between">
                     <a href="/" class=" cursor-pointer ">
+                        <span>
+                            <img src="./icons/open-source.svg" width="30" height="30" alt="logo-image" />
+                        </span>
+                    </a>
+                    <a href="/src/index.html" class="px-10 py-4 rounded-xl cursor-pointer">
                         <span >
-                            <img src="./icons/open-source.svg" width="30" height="30" />
+                            <img src="./icons/link.svg" width="20" height="20" alt="link svg" />
                         </span>
                     </a>
-                    <a href="/src/" class="px-10 py-4 rounded-xl bg-purple-100 cursor-pointer">
-                    <span >
-                            <img src="./icons/link.svg" width="20" height="20" />
+                    <a href="/src/profile.html" class="px-10 py-4 rounded-xl cursor-pointer bg-purple-100 ">
+                        <span >
+                            <img src="./icons/user.svg" width="20" height="20" alt=" user svg" />
                         </span>
                     </a>
-                    <a href="/src/profile.html" class="cursor-pointer "><span ><img src="./icons/user.svg" width="20" height="20" /></span></a>
-                    <a href="/src/preview.html" class="border-solid border rounded-xl fill-purple-500 border-purple-300 px-10 py-4 cursor-pointer"><span ><img src="./icons/eye.svg" width="20" height="20" /></span></a>
+                    <a href="/src/preview.html" class="px-10 py-4 rounded-xl cursor-pointer border-solid border fill-purple-500 border-purple-300 ">
+                        <span >
+                            <img src="./icons/eye.svg" width="20" height="20" />
+                        </span>
+                    </a>
                 </div>
-
-
             </header>
 
-            <main>
+            <main class="flex flex-wrap flex-col">
+                <section class="basis-full bg-white my-4 px-4 rounded-xl">
+                    <h2 class="font-bold text-xl">Profile Details</h2>
+                    <p>Add your details to create a personal touch to your profile.</p>
 
+                    <section class="text-xl flex flex-wrap flex-col gap-5 p-4 bg-slate-50 text-slate-600">
+                        <div class="flex flex-wrap">
+                            <div class="basis-full">
+                                <label>First Name:</label>
+                            </div>
+                            <div class="basis-full">
+                                <div class="flex w-full px-2 bg-slate-100 h-10 outline-none ">
+                                    <div contenteditable class="link-text w-full grow pl-4 pr-4 py-2"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="flex flex-wrap">
+                            <div class="basis-full">
+                                <label>Last Name:</label>
+                            </div>
+                            <div class="basis-full">
+                                <div class="flex w-full px-2 bg-slate-100 h-10 outline-none ">
+                                    <div contenteditable class="link-text w-full grow pl-4 pr-4 py-2"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="flex flex-wrap">
+                            <div class="basis-full">
+                                <label>Email:</label>
+                            </div>
+                            <div class="basis-full">
+                                <div class="flex w-full px-2 bg-slate-100 h-10 outline-none ">
+                                    <div contenteditable class="link-text w-full grow pl-4 pr-4 py-2"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </section> 
+
+                    <section class="my-10 mx-2 basis-full">
+                        <div>
+                            <div class="h-[540px] overflow-y-scrol min-w-[320px] border-1 m-auto border-2 border-solid border-slate-300 rounded-2xl p-2">
+                                <div class="h-[510px] min-w-[300px] overflow-y-scroll border-1 m-auto my-2 border-2 border-solid border-slate-300 rounded-2xl px-2 py-10">
+                                    <div>
+                                        <span class="rounded-full w-32 h-32 bg-slate-200 block m-auto"></span>
+                                        <span class="h-7 my-4 w-10/12 bg-slate-200 block m-auto rounded-xl"></span>
+                                        <span class="h-7 w-6/12 bg-slate-200 block m-auto rounded-xl"></span>
+                                    </div>
+
+                                    <div id="previewLinks" class="flex flex-col items-center gap-4 mt-20 ">
+                                        <!-- <a href="#" class="w-full flex items-center justify-center">
+                                            <div class="py-4 px-5 text-white fill-white bg-black flex items-center justify-between rounded-lg w-11/12">
+                                                <span class="flex items-center gap-2">
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 9H17.5L17 11H13V20H11V11H7V9H11V7.12777C11 5.34473 11.1857 4.69816 11.5343 4.04631C11.8829 3.39446 12.3945 2.88288 13.0463 2.53427C13.6982 2.18565 14.3447 2 16.1278 2C16.6498 2 17.1072 2.05 17.5 2.15V4H16.1278C14.8041 4 14.401 4.07784 13.9895 4.29789C13.6862 4.46011 13.4601 4.68619 13.2979 4.98951C13.0778 5.40096 13 5.80407 13 7.12777V9Z"/></svg>
+                                                    <span>Facebook</span>
+                                                </span>
+                                                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"/></svg>
+                                            </div>
+                                        </a> -->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
             </main>
-
         </div>
     </div>
 </body>
-
 </html>

@@ -1,12 +1,15 @@
 
-import { addNewField, handleSaveLinks } from './eventFn.js';
+import { addNewField, handleSaveLinks, initRender } from './eventFn.js';
 
 const addBtn = document.getElementById('add');
-addBtn.addEventListener( 'click', addNewField );
+
+if(addBtn) addBtn.addEventListener( 'click', addNewField );
 
 const saveBtn = document.getElementById('saveBtn');
-saveBtn.addEventListener('click', handleSaveLinks);
+if (saveBtn) saveBtn.addEventListener('click', handleSaveLinks);
+
+initRender();
 
 
-addNewField();
+// addNewField();
 
