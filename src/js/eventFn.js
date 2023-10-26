@@ -60,6 +60,7 @@ function addNewField() {
             img.height = 20;
             platformLogo.innerHTML = "";
             platformLogo.appendChild(img);
+            handleSaveLinks()
         })
 
         p.addEventListener('click', handlePreviewLink)
@@ -111,6 +112,7 @@ function initRender(){
                 img.height = 20;
                 platformLogo.innerHTML = "";
                 platformLogo.appendChild(img);
+                handleSaveLinks()
             })
             
             p.addEventListener('click', handlePreviewLink)
